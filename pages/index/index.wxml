@@ -1,13 +1,20 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+<view>
+  <i-tabs current="{{ currentTab }}" bindchange="handleChangeTab">
+    <i-tab key="recommend" title='推荐问卷'></i-tab>
+    <i-tab key="new" title="最新发布"></i-tab>
+  </i-tabs>
 </view>
+
+<view style='margin-top: 10px;'>
+  <i-card full i-class="card-demo" title="标题标题标题" extra="小标题">
+    <view slot="content">内容不错</view>
+    <view slot="footer">尾部内容</view>
+  </i-card>
+</view>
+
+<i-tab-bar current="{{ currentTabBar }}" bindchange="handleChangeTabBar" fixed>
+    <i-tab-bar-item key="homepage" icon="homepage_fill" current-icon="homepage_fill" title="问卷广场"></i-tab-bar-item>
+    <i-tab-bar-item key="create" icon="brush_fill" current-icon="brush_fill" title="创建问卷"></i-tab-bar-item>
+    <i-tab-bar-item key="mine" icon="mine_fill" current-icon="mine_fill" title="个人中心"></i-tab-bar-item>
+</i-tab-bar>
+
